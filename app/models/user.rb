@@ -14,4 +14,8 @@
 class User < ApplicationRecord
     validates :email, presence:{message:'has not been entered'},uniqueness:{message:'address must be unique'}
 
+    has_many :submitted_urls,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :ShortenedUrl
 end
