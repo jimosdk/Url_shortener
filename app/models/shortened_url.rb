@@ -31,8 +31,41 @@ class ShortenedUrl < ApplicationRecord
         ShortenedUrl.create!(short_url:code,long_url:long_url,user_id:user.id)
     end
 
+    def num_clicks
+        visits.count
+    end
+
+    #with distinct_ified visitors
+
+    def num_uniques
+        visitors.count
+    end
+
+    def num_recent_uniques
+        visitors.where(visits: {created_at: (Time.now - 10.minutes)..Time.now}).count
+    end
+
+    #without distinct-ified visitors
+    # def num_uniques
+    #     visits.select(:user_id).distinct.count
+    # end
+
+    # def num_recent_uniques
+    #     visits.select("visits.user_id").distinct.where(visits: {created_at: (Time.now - 10.minutes)..Time.now}).count  
+    # end
+
     belongs_to :submitter,
         primary_key: :id,
         foreign_key: :user_id,
         class_name: :User
+
+    has_many :visits,
+        primary_key: :id,
+        foreign_key: :shortened_url_id,
+        class_name: :Visit
+
+    has_many :visitors,
+        ->{distinct},
+        through: :visits,
+        source: :user
 end
