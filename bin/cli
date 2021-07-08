@@ -1,0 +1,72 @@
+#!/usr/bin/env ruby
+require 'uri'
+class CLI
+    def self.create_cli
+        begin
+            print "Input your email:\n>"
+            email = valid_email?(gets.chomp)
+        rescue => e  
+            puts e.message
+        retry
+        end 
+        CLI.new(email)  
+    end
+
+    def initialize(email)
+        @user = User.find_by("email = ?",email) || User.create!(email: email)
+    end
+
+    def prompt
+        begin
+            puts 'What do you want to do?'
+            puts '0. Create shortened URL'
+            puts '1. Visit shortened URL'
+            input = valid_input?(gets.chomp)
+        rescue => e   
+            puts e.message
+        retry
+        end
+
+        case input 
+        when 0 then create_shortened_url
+        when 1 then visit_shortened_url
+        end
+
+        puts 'Goodbye!'
+    end
+
+    private
+
+    def self.valid_email?(email)
+        raise 'Invalid email address' unless email =~ URI::MailTo::EMAIL_REGEXP
+        email
+    end
+
+    def valid_input?(input)
+        raise 'Invalid input' unless input.to_i.to_s == input && input.to_i.between?(0,1)
+        input.to_i
+    end
+
+    def create_shortened_url
+        print "Type in your long url\n>"
+        url = ShortenedUrl.generate_short_url(@user,gets.chomp)
+        puts "Short url is : #{url.short_url}"
+    end
+
+    def visit_shortened_url
+        print "Type in the shortened URL\n>"
+        url = ShortenedUrl.find_by("short_url = ?",gets.chomp)
+        if url
+            puts "Launching #{url.long_url}..."
+            Visit.record_visit!(@user,url)
+        else
+            puts "Invalid shortened URL"
+        end
+    end
+
+end
+
+if __FILE__ == $PROGRAM_NAME
+    cli = CLI.create_cli
+    cli.prompt
+end
