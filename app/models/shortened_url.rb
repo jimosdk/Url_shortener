@@ -19,6 +19,7 @@ require 'securerandom'
 class ShortenedUrl < ApplicationRecord
     validates :long_url,:user_id,presence:true
     validates :short_url,presence:true,uniqueness:true
+    validate :no_spamming
 
     def self.random_code
         code = nil
@@ -44,6 +45,12 @@ class ShortenedUrl < ApplicationRecord
     def num_recent_uniques
         visitors.where(visits: {created_at: (Time.now - 10.minutes)..Time.now}).count
     end
+
+    def no_spamming
+        errors.add(:base,message: "Reached limit of 5 submissions per minute") if count_recent_submissions >= 5
+    end
+
+    
 
     #without distinct-ified visitors
     # def num_uniques
@@ -78,4 +85,10 @@ class ShortenedUrl < ApplicationRecord
         ->{distinct},
         through: :taggings,
         source: :tag_topic
+
+    private
+
+    def count_recent_submissions
+        ShortenedUrl.where("user_id = ? AND created_at BETWEEN ? AND ?",user_id,Time.now - 5.minutes,Time.now).count
+    end
 end
