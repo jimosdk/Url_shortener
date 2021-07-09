@@ -2,6 +2,7 @@ class Vote < ApplicationRecord
     validates :url_id,:voter_id,:score,presence: true
     validates :url_id,uniqueness:{scope: :voter_id,message:"already received vote from this user"}
     validate :self_vote
+    
     def self.vote_url(user,url,score)
         Vote.create!(voter_id: user.id,url_id: url.id,score: score)
     end

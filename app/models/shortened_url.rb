@@ -66,11 +66,11 @@ class ShortenedUrl < ApplicationRecord
     end
 
     def self.top 
-
+        ShortenedUrl.select("long_url,AVG(score) AS total_score").joins(:votes).group(:id).order("AVG(score) DESC")
     end
 
-    def self.hot 
-        
+    def self.hot(n)
+        ShortenedUrl.select("long_url,AVG(score) AS total_score").joins(:votes).where(votes:{created_at: (Time.now - n.minutes) .. Time.now}).group(:id).order("AVG(score) DESC")
     end
 
     #without distinct-ified visitors

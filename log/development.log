@@ -14796,3 +14796,763 @@ Migrating to CreateVotes (20210709123903)
   [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mVote Load (0.7ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."voter_id" = $1[0m  [["voter_id", 3]]
   [1m[36mShortenedUrl Load (1.2ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" INNER JOIN "votes" ON "shortened_urls"."id" = "votes"."url_id" WHERE "votes"."voter_id" = $1[0m  [["voter_id", 3]]
+  [1m[36mShortenedUrl Load (2.6ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m
+  [1m[36mShortenedUrl Load (1.7ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" WHERE "votes"."created_at" BETWEEN $1 AND $2 GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m  [["created_at", "2021-07-09 13:54:26.188187"], ["created_at", "2021-07-09 13:54:36.188216"]]
+  [1m[36mShortenedUrl Load (1.8ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" WHERE "votes"."created_at" BETWEEN $1 AND $2 GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m  [["created_at", "2021-07-09 13:54:24.795481"], ["created_at", "2021-07-09 13:54:44.795495"]]
+  [1m[36mShortenedUrl Load (1.7ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" WHERE "votes"."created_at" BETWEEN $1 AND $2 GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m  [["created_at", "2021-07-09 13:54:35.666176"], ["created_at", "2021-07-09 13:55:05.666198"]]
+  [1m[36mShortenedUrl Load (2.5ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" WHERE "votes"."created_at" BETWEEN $1 AND $2 GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m  [["created_at", "2021-07-09 13:25:15.338318"], ["created_at", "2021-07-09 13:55:15.338405"]]
+  [1m[36mShortenedUrl Load (1.5ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" WHERE "votes"."created_at" BETWEEN $1 AND $2 GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m  [["created_at", "2021-07-09 13:50:23.224022"], ["created_at", "2021-07-09 13:55:23.224086"]]
+  [1m[36mShortenedUrl Load (2.4ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" WHERE "votes"."created_at" BETWEEN $1 AND $2 GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m  [["created_at", "2021-07-09 13:49:32.252779"], ["created_at", "2021-07-09 13:55:32.252835"]]
+  [1m[36mShortenedUrl Load (1.6ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" WHERE "votes"."created_at" BETWEEN $1 AND $2 GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m  [["created_at", "2021-07-09 13:48:39.876685"], ["created_at", "2021-07-09 13:55:39.876731"]]
+  [1m[36mShortenedUrl Load (2.1ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" WHERE "votes"."created_at" BETWEEN $1 AND $2 GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m  [["created_at", "2021-07-09 13:45:46.544285"], ["created_at", "2021-07-09 13:55:46.544355"]]
+  [1m[36mShortenedUrl Load (2.6ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" WHERE "votes"."created_at" BETWEEN $1 AND $2 GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m  [["created_at", "2021-07-09 13:38:53.082193"], ["created_at", "2021-07-09 13:55:53.082250"]]
+  [1m[36mShortenedUrl Load (3.0ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" WHERE "votes"."created_at" BETWEEN $1 AND $2 GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m  [["created_at", "2021-07-09 13:36:59.987031"], ["created_at", "2021-07-09 13:55:59.987086"]]
+  [1m[36mShortenedUrl Load (1.5ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" WHERE "votes"."created_at" BETWEEN $1 AND $2 GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m  [["created_at", "2021-07-09 13:31:06.958485"], ["created_at", "2021-07-09 13:56:06.958530"]]
+  [1m[36mShortenedUrl Load (3.7ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" WHERE "votes"."created_at" BETWEEN $1 AND $2 GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m  [["created_at", "2021-07-09 13:27:14.418365"], ["created_at", "2021-07-09 13:56:14.418419"]]
+  [1m[36mShortenedUrl Load (3.6ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" WHERE "votes"."created_at" BETWEEN $1 AND $2 GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m  [["created_at", "2021-07-09 13:26:22.313270"], ["created_at", "2021-07-09 13:56:22.313323"]]
+  [1m[36mShortenedUrl Load (1.7ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" WHERE "votes"."created_at" BETWEEN $1 AND $2 GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m  [["created_at", "2021-07-09 13:26:36.393069"], ["created_at", "2021-07-09 13:56:36.393112"]]
+  [1m[36mShortenedUrl Load (1.7ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" WHERE "votes"."created_at" BETWEEN $1 AND $2 GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m  [["created_at", "2021-07-09 13:26:43.894529"], ["created_at", "2021-07-09 13:56:43.894575"]]
+  [1m[36mShortenedUrl Load (1.6ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" WHERE "votes"."created_at" BETWEEN $1 AND $2 GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m  [["created_at", "2021-07-09 13:26:48.658644"], ["created_at", "2021-07-09 13:56:48.658688"]]
+  [1m[36mShortenedUrl Load (1.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls"[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (1.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 260]]
+  [1m[36mVisit Destroy (1.1ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 385]]
+  [1m[36mVisit Destroy (0.9ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 386]]
+  [1m[36mVisit Destroy (0.9ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 392]]
+  [1m[36mVisit Destroy (0.7ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 401]]
+  [1m[36mTagging Load (1.0ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 260]]
+  [1m[36mVote Load (1.0ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 260]]
+  [1m[36mVote Destroy (0.9ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 6]]
+  [1m[36mVote Destroy (1.0ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 7]]
+  [1m[36mVote Destroy (1.0ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 8]]
+  [1m[36mVote Destroy (0.8ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 9]]
+  [1m[36mVote Destroy (1.5ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 10]]
+  [1m[36mVote Destroy (1.5ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 11]]
+  [1m[36mVote Destroy (0.6ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 12]]
+  [1m[36mShortenedUrl Destroy (0.8ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 260]]
+  [1m[36mTRANSACTION (9.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (0.9ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 261]]
+  [1m[36mVisit Destroy (1.0ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 387]]
+  [1m[36mVisit Destroy (2.7ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 403]]
+  [1m[36mTagging Load (0.9ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 261]]
+  [1m[36mVote Load (0.9ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 261]]
+  [1m[36mVote Destroy (2.2ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 1]]
+  [1m[36mVote Destroy (0.7ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 2]]
+  [1m[36mVote Destroy (2.0ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 3]]
+  [1m[36mVote Destroy (0.7ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 4]]
+  [1m[36mVote Destroy (2.3ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 5]]
+  [1m[36mVote Destroy (0.8ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 13]]
+  [1m[36mVote Destroy (2.4ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 14]]
+  [1m[36mShortenedUrl Destroy (1.2ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 261]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (0.7ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 262]]
+  [1m[36mVisit Destroy (0.8ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 388]]
+  [1m[36mVisit Destroy (2.6ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 395]]
+  [1m[36mTagging Load (0.8ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 262]]
+  [1m[36mVote Load (1.4ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 262]]
+  [1m[36mShortenedUrl Destroy (1.4ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 262]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (0.7ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 263]]
+  [1m[36mVisit Destroy (1.3ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 394]]
+  [1m[36mTagging Load (1.0ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 263]]
+  [1m[36mVote Load (1.1ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 263]]
+  [1m[36mVote Destroy (1.4ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 15]]
+  [1m[36mVote Destroy (1.2ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 16]]
+  [1m[36mVote Destroy (1.8ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 17]]
+  [1m[36mVote Destroy (1.1ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 18]]
+  [1m[36mVote Destroy (1.3ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 19]]
+  [1m[36mVote Destroy (1.0ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 20]]
+  [1m[36mVote Destroy (1.3ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 21]]
+  [1m[36mShortenedUrl Destroy (1.3ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 263]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (1.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 264]]
+  [1m[36mVisit Destroy (3.1ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 389]]
+  [1m[36mVisit Destroy (0.8ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 391]]
+  [1m[36mVisit Destroy (0.8ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 393]]
+  [1m[36mTagging Load (0.6ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 264]]
+  [1m[36mVote Load (2.0ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 264]]
+  [1m[36mVote Destroy (2.0ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 22]]
+  [1m[36mVote Destroy (0.7ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 23]]
+  [1m[36mVote Destroy (1.0ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 24]]
+  [1m[36mVote Destroy (1.0ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 25]]
+  [1m[36mVote Destroy (1.0ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 26]]
+  [1m[36mVote Destroy (1.1ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 27]]
+  [1m[36mVote Destroy (0.9ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 28]]
+  [1m[36mShortenedUrl Destroy (0.9ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 264]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (0.8ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 265]]
+  [1m[36mVisit Destroy (0.8ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 390]]
+  [1m[36mVisit Destroy (1.1ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 407]]
+  [1m[36mTagging Load (1.0ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 265]]
+  [1m[36mVote Load (0.6ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 265]]
+  [1m[36mShortenedUrl Destroy (1.3ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 265]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 266]]
+  [1m[36mVisit Destroy (1.2ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 399]]
+  [1m[36mVisit Destroy (4.4ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 400]]
+  [1m[36mVisit Destroy (1.4ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 406]]
+  [1m[36mTagging Load (1.7ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 266]]
+  [1m[36mVote Load (2.2ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 266]]
+  [1m[36mVote Destroy (1.8ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 29]]
+  [1m[36mVote Destroy (2.4ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 30]]
+  [1m[36mVote Destroy (4.4ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 31]]
+  [1m[36mVote Destroy (1.1ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 32]]
+  [1m[36mVote Destroy (1.2ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 33]]
+  [1m[36mVote Destroy (1.1ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 34]]
+  [1m[36mVote Destroy (2.0ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 35]]
+  [1m[36mShortenedUrl Destroy (4.2ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 266]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (0.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 267]]
+  [1m[36mVisit Destroy (1.4ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 397]]
+  [1m[36mTagging Load (2.0ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 267]]
+  [1m[36mVote Load (1.5ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 267]]
+  [1m[36mShortenedUrl Destroy (1.2ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 267]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (0.7ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 268]]
+  [1m[36mVisit Destroy (2.2ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 396]]
+  [1m[36mVisit Destroy (1.8ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 404]]
+  [1m[36mTagging Load (2.2ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 268]]
+  [1m[36mVote Load (2.5ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 268]]
+  [1m[36mVote Destroy (1.1ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 36]]
+  [1m[36mVote Destroy (3.0ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 37]]
+  [1m[36mVote Destroy (1.6ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 38]]
+  [1m[36mVote Destroy (2.3ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 39]]
+  [1m[36mVote Destroy (2.2ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 40]]
+  [1m[36mVote Destroy (1.6ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 41]]
+  [1m[36mVote Destroy (2.0ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 42]]
+  [1m[36mShortenedUrl Destroy (2.2ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 268]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (0.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 269]]
+  [1m[36mVisit Destroy (1.8ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 398]]
+  [1m[36mTagging Load (1.6ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 269]]
+  [1m[36mVote Load (3.1ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 269]]
+  [1m[36mShortenedUrl Destroy (1.8ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 269]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (0.8ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 270]]
+  [1m[36mVisit Destroy (2.3ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 402]]
+  [1m[36mTagging Load (2.2ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 270]]
+  [1m[36mVote Load (1.5ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 270]]
+  [1m[36mVote Destroy (2.1ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 43]]
+  [1m[36mVote Destroy (1.0ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 44]]
+  [1m[36mVote Destroy (1.1ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 45]]
+  [1m[36mVote Destroy (1.1ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 46]]
+  [1m[36mVote Destroy (1.0ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 47]]
+  [1m[36mVote Destroy (1.0ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 48]]
+  [1m[36mVote Destroy (1.2ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 49]]
+  [1m[36mShortenedUrl Destroy (1.7ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 270]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (1.8ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 271]]
+  [1m[36mTagging Load (1.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 271]]
+  [1m[36mVote Load (0.6ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 271]]
+  [1m[36mShortenedUrl Destroy (1.4ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 271]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (0.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 272]]
+  [1m[36mVisit Destroy (2.5ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 409]]
+  [1m[36mTagging Load (2.0ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 272]]
+  [1m[36mVote Load (2.3ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 272]]
+  [1m[36mShortenedUrl Destroy (0.8ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 272]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (0.7ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 273]]
+  [1m[36mTagging Load (2.0ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 273]]
+  [1m[36mVote Load (2.1ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 273]]
+  [1m[36mShortenedUrl Destroy (1.1ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 273]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (0.7ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 274]]
+  [1m[36mTagging Load (2.4ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 274]]
+  [1m[36mVote Load (3.1ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 274]]
+  [1m[36mShortenedUrl Destroy (1.0ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 274]]
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (0.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 275]]
+  [1m[36mVisit Destroy (4.0ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 405]]
+  [1m[36mVisit Destroy (0.9ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = $1[0m  [["id", 408]]
+  [1m[36mTagging Load (0.5ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 275]]
+  [1m[36mVote Load (1.3ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 275]]
+  [1m[36mShortenedUrl Destroy (3.1ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 275]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 276]]
+  [1m[36mTagging Load (0.8ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 276]]
+  [1m[36mVote Load (1.5ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 276]]
+  [1m[36mShortenedUrl Destroy (3.0ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 276]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 277]]
+  [1m[36mTagging Load (0.5ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 277]]
+  [1m[36mVote Load (1.4ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 277]]
+  [1m[36mShortenedUrl Destroy (4.0ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 277]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 278]]
+  [1m[36mTagging Load (3.6ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 278]]
+  [1m[36mVote Load (0.4ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 278]]
+  [1m[36mShortenedUrl Destroy (2.1ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 278]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (0.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 279]]
+  [1m[36mTagging Load (0.4ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 279]]
+  [1m[36mVote Load (0.5ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 279]]
+  [1m[36mVote Destroy (1.0ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 50]]
+  [1m[36mVote Destroy (1.8ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 51]]
+  [1m[36mVote Destroy (1.7ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 52]]
+  [1m[36mVote Destroy (1.7ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 53]]
+  [1m[36mVote Destroy (0.7ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 54]]
+  [1m[36mVote Destroy (0.7ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 55]]
+  [1m[36mVote Destroy (0.9ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 56]]
+  [1m[36mShortenedUrl Destroy (0.7ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 279]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 280]]
+  [1m[36mTagging Load (1.7ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 280]]
+  [1m[36mVote Load (1.7ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 280]]
+  [1m[36mShortenedUrl Destroy (0.9ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 280]]
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (0.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 281]]
+  [1m[36mTagging Load (0.5ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 281]]
+  [1m[36mVote Load (1.6ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 281]]
+  [1m[36mShortenedUrl Destroy (1.7ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 281]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (0.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 282]]
+  [1m[36mTagging Load (2.4ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 282]]
+  [1m[36mVote Load (0.8ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 282]]
+  [1m[36mShortenedUrl Destroy (1.9ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 282]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (0.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 283]]
+  [1m[36mTagging Load (2.2ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 283]]
+  [1m[36mVote Load (0.4ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 283]]
+  [1m[36mShortenedUrl Destroy (1.7ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 283]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 284]]
+  [1m[36mTagging Load (0.7ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."url_id" = $1[0m  [["url_id", 284]]
+  [1m[36mVote Load (0.6ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."url_id" = $1[0m  [["url_id", 284]]
+  [1m[36mShortenedUrl Destroy (1.0ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 284]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "Hf7wMyHFzRDrVXEGxa4YUQ"], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "LWaPaJB2JqrGA4ySFNV_WQ"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "LWaPaJB2JqrGA4ySFNV_WQ"], ["LIMIT", 1]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE (user_id = 3 AND created_at BETWEEN '2021-07-09 14:00:17.885501' AND '2021-07-09 14:05:17.888869')[0m
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE (user_id = 3)[0m
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (1.2ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("long_url", "short_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["long_url", "https://open.appacademy.io/learn/full-stack-online/sql/url-shortener"], ["short_url", "LWaPaJB2JqrGA4ySFNV_WQ"], ["user_id", 3], ["created_at", "2021-07-09 14:05:17.906203"], ["updated_at", "2021-07-09 14:05:17.906203"]]
+  [1m[36mTRANSACTION (10.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists? (6.2ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "04iGnIB15HJqXSsKupKSCA"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "04iGnIB15HJqXSsKupKSCA"], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE (user_id = 4 AND created_at BETWEEN '2021-07-09 14:00:17.943720' AND '2021-07-09 14:05:17.943765')[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE (user_id = 4)[0m
+  [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (1.2ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("long_url", "short_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["long_url", "https://www.youtube.com/watch?v=mdGleunr-qo"], ["short_url", "04iGnIB15HJqXSsKupKSCA"], ["user_id", 4], ["created_at", "2021-07-09 14:05:17.959164"], ["updated_at", "2021-07-09 14:05:17.959164"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "uScQlqPnEJ1sW4bYCHe5hg"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "uScQlqPnEJ1sW4bYCHe5hg"], ["LIMIT", 1]]
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE (user_id = 5 AND created_at BETWEEN '2021-07-09 14:00:17.990220' AND '2021-07-09 14:05:17.990273')[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE (user_id = 5)[0m
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (2.6ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("long_url", "short_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["long_url", "https://www.craigkerstiens.com/2012/11/17/how-i-writ"], ["short_url", "uScQlqPnEJ1sW4bYCHe5hg"], ["user_id", 5], ["created_at", "2021-07-09 14:05:18.004682"], ["updated_at", "2021-07-09 14:05:18.004682"]]
+  [1m[36mTRANSACTION (7.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists? (3.8ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "SIVkW5oFMqduB6l4WYFcNw"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "SIVkW5oFMqduB6l4WYFcNw"], ["LIMIT", 1]]
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE (user_id = 6 AND created_at BETWEEN '2021-07-09 14:00:18.036112' AND '2021-07-09 14:05:18.036158')[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE (user_id = 6)[0m
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (2.4ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("long_url", "short_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["long_url", "e-sql/"], ["short_url", "SIVkW5oFMqduB6l4WYFcNw"], ["user_id", 6], ["created_at", "2021-07-09 14:05:18.049300"], ["updated_at", "2021-07-09 14:05:18.049300"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "oUvv-elJRsU3VUN4GaL_6w"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "oUvv-elJRsU3VUN4GaL_6w"], ["LIMIT", 1]]
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE (user_id = 7 AND created_at BETWEEN '2021-07-09 14:00:18.076147' AND '2021-07-09 14:05:18.076196')[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE (user_id = 7)[0m
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (4.5ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("long_url", "short_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["long_url", "https://rspec.rubystyle.guide/"], ["short_url", "oUvv-elJRsU3VUN4GaL_6w"], ["user_id", 7], ["created_at", "2021-07-09 14:05:18.090613"], ["updated_at", "2021-07-09 14:05:18.090613"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "7RcuTPrkf1DaBbnXUzceVw"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "7RcuTPrkf1DaBbnXUzceVw"], ["LIMIT", 1]]
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE (user_id = 8 AND created_at BETWEEN '2021-07-09 14:00:18.120330' AND '2021-07-09 14:05:18.120384')[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE (user_id = 8)[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (1.6ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("long_url", "short_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["long_url", "https://gist.github.com/eliotsykes/e64786ef97479ba234b3583febb025b2"], ["short_url", "7RcuTPrkf1DaBbnXUzceVw"], ["user_id", 8], ["created_at", "2021-07-09 14:05:18.135584"], ["updated_at", "2021-07-09 14:05:18.135584"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Load (1.1ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls"[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.6ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m
+  [1m[36mShortenedUrl Load (1.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls"[0m
+  [1m[36mVote Load (0.9ms)[0m  [1m[34mSELECT "votes".* FROM "votes"[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.3ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 287], ["voter_id", 3], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (5.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mVote Create (1.6ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 3], ["url_id", 287], ["score", 9], ["created_at", "2021-07-09 14:16:18.966829"], ["updated_at", "2021-07-09 14:16:18.966829"]]
+  [1m[36mTRANSACTION (10.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 287], ["voter_id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (4.1ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (3.1ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mVote Create (1.0ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 4], ["url_id", 287], ["score", 5], ["created_at", "2021-07-09 14:16:19.014688"], ["updated_at", "2021-07-09 14:16:19.014688"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (3.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 287], ["voter_id", 5], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mVote Load (1.1ms)[0m  [1m[34mSELECT "votes".* FROM "votes"[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Destroy (1.0ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 57]]
+  [1m[36mTRANSACTION (10.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Destroy (2.5ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 58]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 287], ["voter_id", 3], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (3.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mVote Create (3.7ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 3], ["url_id", 287], ["score", 5], ["created_at", "2021-07-09 14:17:09.982705"], ["updated_at", "2021-07-09 14:17:09.982705"]]
+  [1m[36mTRANSACTION (8.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 287], ["voter_id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.2ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mVote Create (1.7ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 4], ["url_id", 287], ["score", 5], ["created_at", "2021-07-09 14:17:10.024385"], ["updated_at", "2021-07-09 14:17:10.024385"]]
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 287], ["voter_id", 5], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (5.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 287], ["voter_id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mVote Create (1.2ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 6], ["url_id", 287], ["score", 2], ["created_at", "2021-07-09 14:17:10.097907"], ["updated_at", "2021-07-09 14:17:10.097907"]]
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 287], ["voter_id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (3.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mVote Create (3.8ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 7], ["url_id", 287], ["score", 10], ["created_at", "2021-07-09 14:17:10.133237"], ["updated_at", "2021-07-09 14:17:10.133237"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (3.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 287], ["voter_id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (4.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mVote Create (1.1ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 8], ["url_id", 287], ["score", 6], ["created_at", "2021-07-09 14:17:10.182156"], ["updated_at", "2021-07-09 14:17:10.182156"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (3.2ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 286], ["voter_id", 3], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mVote Create (1.1ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 3], ["url_id", 286], ["score", 7], ["created_at", "2021-07-09 14:18:02.762931"], ["updated_at", "2021-07-09 14:18:02.762931"]]
+  [1m[36mTRANSACTION (9.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 286], ["voter_id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.3ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 286], ["voter_id", 5], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.2ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mVote Create (1.8ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 5], ["url_id", 286], ["score", 2], ["created_at", "2021-07-09 14:18:02.833914"], ["updated_at", "2021-07-09 14:18:02.833914"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 286], ["voter_id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mVote Create (3.2ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 6], ["url_id", 286], ["score", 7], ["created_at", "2021-07-09 14:18:02.869107"], ["updated_at", "2021-07-09 14:18:02.869107"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 286], ["voter_id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mVote Create (2.2ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 7], ["url_id", 286], ["score", 1], ["created_at", "2021-07-09 14:18:02.902078"], ["updated_at", "2021-07-09 14:18:02.902078"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 286], ["voter_id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mVote Create (1.5ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 8], ["url_id", 286], ["score", 5], ["created_at", "2021-07-09 14:18:02.937756"], ["updated_at", "2021-07-09 14:18:02.937756"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 285], ["voter_id", 3], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 285], ["voter_id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.3ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mVote Create (4.4ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 4], ["url_id", 285], ["score", 6], ["created_at", "2021-07-09 14:18:22.265903"], ["updated_at", "2021-07-09 14:18:22.265903"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 285], ["voter_id", 5], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.1ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mVote Create (2.6ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 5], ["url_id", 285], ["score", 8], ["created_at", "2021-07-09 14:18:22.307916"], ["updated_at", "2021-07-09 14:18:22.307916"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 285], ["voter_id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.1ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mVote Create (2.4ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 6], ["url_id", 285], ["score", 4], ["created_at", "2021-07-09 14:18:22.343690"], ["updated_at", "2021-07-09 14:18:22.343690"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 285], ["voter_id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.1ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (3.1ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mVote Create (2.7ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 7], ["url_id", 285], ["score", 8], ["created_at", "2021-07-09 14:18:22.388686"], ["updated_at", "2021-07-09 14:18:22.388686"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 285], ["voter_id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mVote Create (4.0ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 8], ["url_id", 285], ["score", 6], ["created_at", "2021-07-09 14:18:22.426314"], ["updated_at", "2021-07-09 14:18:22.426314"]]
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Load (1.8ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (4.3ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 285], ["voter_id", 3], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.3ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 286], ["voter_id", 3], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.1ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 287], ["voter_id", 3], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 285], ["voter_id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.2ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (3.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 286], ["voter_id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 287], ["voter_id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (5.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 285], ["voter_id", 5], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (4.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (5.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 286], ["voter_id", 5], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.3ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mUser Load (8.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 287], ["voter_id", 5], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (3.2ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 285], ["voter_id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (3.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 286], ["voter_id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 287], ["voter_id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.2ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 285], ["voter_id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 286], ["voter_id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 287], ["voter_id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 285], ["voter_id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 286], ["voter_id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 287], ["voter_id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 285], ["voter_id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mVote Create (0.9ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 9], ["url_id", 285], ["score", 7], ["created_at", "2021-07-09 14:23:19.434322"], ["updated_at", "2021-07-09 14:23:19.434322"]]
+  [1m[36mTRANSACTION (10.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (3.5ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 286], ["voter_id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mVote Create (0.9ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 9], ["url_id", 286], ["score", 3], ["created_at", "2021-07-09 14:23:19.478134"], ["updated_at", "2021-07-09 14:23:19.478134"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 287], ["voter_id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mVote Create (1.7ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 9], ["url_id", 287], ["score", 9], ["created_at", "2021-07-09 14:23:19.510326"], ["updated_at", "2021-07-09 14:23:19.510326"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 285], ["voter_id", 10], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mVote Create (3.2ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 10], ["url_id", 285], ["score", 5], ["created_at", "2021-07-09 14:23:19.539251"], ["updated_at", "2021-07-09 14:23:19.539251"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 286], ["voter_id", 10], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mVote Create (2.2ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 10], ["url_id", 286], ["score", 5], ["created_at", "2021-07-09 14:23:19.572559"], ["updated_at", "2021-07-09 14:23:19.572559"]]
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 287], ["voter_id", 10], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mVote Create (1.0ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 10], ["url_id", 287], ["score", 6], ["created_at", "2021-07-09 14:23:19.601709"], ["updated_at", "2021-07-09 14:23:19.601709"]]
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.3ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 285], ["voter_id", 11], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 285], ["LIMIT", 1]]
+  [1m[36mVote Create (3.0ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 11], ["url_id", 285], ["score", 7], ["created_at", "2021-07-09 14:23:19.635927"], ["updated_at", "2021-07-09 14:23:19.635927"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 286], ["voter_id", 11], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.1ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 286], ["LIMIT", 1]]
+  [1m[36mVote Create (1.9ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 11], ["url_id", 286], ["score", 9], ["created_at", "2021-07-09 14:23:19.670690"], ["updated_at", "2021-07-09 14:23:19.670690"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVote Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "votes" WHERE "votes"."url_id" = $1 AND "votes"."voter_id" = $2 LIMIT $3[0m  [["url_id", 287], ["voter_id", 11], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (2.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 287], ["LIMIT", 1]]
+  [1m[36mVote Create (1.9ms)[0m  [1m[32mINSERT INTO "votes" ("voter_id", "url_id", "score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["voter_id", 11], ["url_id", 287], ["score", 1], ["created_at", "2021-07-09 14:23:19.705928"], ["updated_at", "2021-07-09 14:23:19.705928"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.8ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m
+  [1m[36mShortenedUrl Load (1.7ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" WHERE "votes"."created_at" BETWEEN $1 AND $2 GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m  [["created_at", "2021-07-09 13:54:15.504177"], ["created_at", "2021-07-09 14:24:15.504244"]]
+  [1m[36mShortenedUrl Load (2.5ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" WHERE "votes"."created_at" BETWEEN $1 AND $2 GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m  [["created_at", "2021-07-09 14:20:22.558767"], ["created_at", "2021-07-09 14:25:22.558823"]]
+  [1m[36mShortenedUrl Load (1.6ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m
+  [1m[36mShortenedUrl Load (2.4ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" WHERE "votes"."created_at" BETWEEN $1 AND $2 GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m  [["created_at", "2021-07-09 14:19:26.053078"], ["created_at", "2021-07-09 14:26:26.053147"]]
+  [1m[36mShortenedUrl Load (2.1ms)[0m  [1m[34mSELECT long_url,AVG(score) AS total_score FROM "shortened_urls" INNER JOIN "votes" ON "votes"."url_id" = "shortened_urls"."id" WHERE "votes"."created_at" BETWEEN $1 AND $2 GROUP BY "shortened_urls"."id" ORDER BY AVG(score) DESC[0m  [["created_at", "2021-07-09 14:16:44.797198"], ["created_at", "2021-07-09 14:26:44.797259"]]
