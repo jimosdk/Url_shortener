@@ -19,7 +19,7 @@ require 'securerandom'
 class ShortenedUrl < ApplicationRecord
     validates :long_url,:user_id,presence:true
     validates :short_url,presence:true,uniqueness:true
-    validate :no_spamming
+    validate :no_spamming,:nonpremium_max
 
     def self.random_code
         code = nil
@@ -48,6 +48,10 @@ class ShortenedUrl < ApplicationRecord
 
     def no_spamming
         errors.add(:base,message: "Reached limit of 5 submissions per minute") if count_recent_submissions >= 5
+    end
+
+    def nonpremium_max
+        errors.add(:base,message: "Reached limit of 5 submissions for non premium users") if count_submissions >= 5 && User.find(user_id).premium == false
     end
 
     
@@ -90,5 +94,9 @@ class ShortenedUrl < ApplicationRecord
 
     def count_recent_submissions
         ShortenedUrl.where("user_id = ? AND created_at BETWEEN ? AND ?",user_id,Time.now - 5.minutes,Time.now).count
+    end
+
+    def count_submissions
+        ShortenedUrl.where("user_id = ?",user_id).count
     end
 end

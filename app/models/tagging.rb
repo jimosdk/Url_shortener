@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: taggings
+#
+#  id         :bigint           not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  topic_id   :integer          not null
+#  url_id     :integer          not null
+#
+# Indexes
+#
+#  index_taggings_on_topic_id  (topic_id)
+#  index_taggings_on_url_id    (url_id)
+#
 class Tagging < ApplicationRecord
     validates :url_id,:topic_id,presence:true
 
