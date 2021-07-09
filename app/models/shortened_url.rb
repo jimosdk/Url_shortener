@@ -65,6 +65,14 @@ class ShortenedUrl < ApplicationRecord
         errors.add(:base,message: "Reached limit of 5 submissions for non premium users") if count_submissions >= 5 && User.find(user_id).premium == false
     end
 
+    def self.top 
+
+    end
+
+    def self.hot 
+        
+    end
+
     #without distinct-ified visitors
     # def num_uniques
     #     visits.select(:user_id).distinct.count
@@ -100,6 +108,16 @@ class ShortenedUrl < ApplicationRecord
         ->{distinct},
         through: :taggings,
         source: :tag_topic
+
+    has_many :votes,
+        primary_key: :id,
+        foreign_key: :url_id,
+        class_name: :Vote,
+        dependent: :destroy
+
+    has_many :voters,
+        through: :votes,
+        source: :voter
 
     private
 

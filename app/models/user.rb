@@ -29,4 +29,13 @@ class User < ApplicationRecord
         ->{distinct},
         through: :visits,
         source: :shortened_url
+
+    has_many :votes,
+        primary_key: :id,
+        foreign_key: :voter_id,
+        class_name: :Vote
+    
+    has_many :voted_urls,
+        through: :votes,
+        source: :url
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_08_195212) do
+ActiveRecord::Schema.define(version: 2021_07_09_123903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 2021_07_08_195212) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["shortened_url_id"], name: "index_visits_on_shortened_url_id"
     t.index ["user_id"], name: "index_visits_on_user_id"
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer "voter_id", null: false
+    t.integer "url_id", null: false
+    t.integer "score", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["voter_id", "url_id"], name: "index_votes_on_voter_id_and_url_id", unique: true
   end
 
 end
