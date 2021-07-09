@@ -32,6 +32,17 @@ class ShortenedUrl < ApplicationRecord
         ShortenedUrl.create!(short_url:code,long_url:long_url,user_id:user.id)
     end
 
+    def self.prune(n)
+        ShortenedUrl.joins(:submitter).where("shortened_urls.created_at < ? AND users.premium = ? AND shortened_urls.id NOT IN (?)",
+            Time.now - n.minutes,false,
+            ShortenedUrl
+            .select("shortened_urls.id")
+            .joins(:visits)
+            .where("visits.created_at > ?",
+            Time.now - n.minutes)).destroy_all
+
+    end
+
     def num_clicks
         visits.count
     end
@@ -54,8 +65,6 @@ class ShortenedUrl < ApplicationRecord
         errors.add(:base,message: "Reached limit of 5 submissions for non premium users") if count_submissions >= 5 && User.find(user_id).premium == false
     end
 
-    
-
     #without distinct-ified visitors
     # def num_uniques
     #     visits.select(:user_id).distinct.count
@@ -73,7 +82,8 @@ class ShortenedUrl < ApplicationRecord
     has_many :visits,
         primary_key: :id,
         foreign_key: :shortened_url_id,
-        class_name: :Visit
+        class_name: :Visit,
+        dependent: :destroy
 
     has_many :visitors,
         ->{distinct},
@@ -83,7 +93,8 @@ class ShortenedUrl < ApplicationRecord
     has_many :taggings,
         primary_key: :id,
         foreign_key: :url_id,
-        class_name:  :Tagging 
+        class_name:  :Tagging,
+        dependent: :destroy
 
     has_many :tag_topics,
         ->{distinct},
